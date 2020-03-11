@@ -106,7 +106,7 @@ class EmployeeDetailsController extends Controller
 
             $updateEmployee = EmployeeDetails::find()->where(['empId' => $employee_id])->one();
             $updateEmployee->experience = $employee_experience;
-            $updateEmployee->save();
+            $updateEmployee->save(false);
 
             $i = 0;
             foreach ($_POST['EmployeeSalaryDetails']['year']  as $value) {
