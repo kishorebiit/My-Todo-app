@@ -1,11 +1,11 @@
 Please find the databse Inside Databse Folder
 
 
-Step1 : Run this in web directoty 
+Step1 : Run this in web directory 
 
-Step2 : After that go to 
+Step2 : After that go to ToDo/config/db.php 
 
-ToDo/config/db.php setup the database and username and password
+setup the database and username and password
 
 Step3: After that run this on url 
 
