@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'mobileNo',
             'designation',
             'experience',
-            'salary',
+            // 'salary',
             'createdOn',
         ],
     ]) ?>
