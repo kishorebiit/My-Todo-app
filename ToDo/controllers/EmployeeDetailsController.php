@@ -109,17 +109,20 @@ class EmployeeDetailsController extends Controller
             $updateEmployee->save(false);
 
             $i = 0;
-            foreach ($_POST['EmployeeSalaryDetails']['year']  as $value) {
-                    $model = new EmployeeSalaryDetails();
-                    $year = $salaryDetails['year'][$i];
-                    $salary = $salaryDetails['salary'][$i];
-                   
-                    $model->empId = $employee_id;
-                    $model->year = $year;
-                    $model->salary = $salary;
-                    $model->save();
+            $employeeDetails = EmployeeSalaryDetails::find()->where(['year'=>$_POST['EmployeeSalaryDetails']['year'], 'empId' => $employee_id])->one();
+            if(empty($employeeDetails)){
+                foreach ($_POST['EmployeeSalaryDetails']['year']  as $value) {
+                        $model = new EmployeeSalaryDetails();
+                        $year = $salaryDetails['year'][$i];
+                        $salary = $salaryDetails['salary'][$i];
+                       
+                        $model->empId = $employee_id;
+                        $model->year = $year;
+                        $model->salary = $salary;
+                        $model->save();
 
-                    $i = $i + 1;
+                        $i = $i + 1;
+                }
             }
             return $this->redirect(['index']);
         }
